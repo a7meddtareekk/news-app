@@ -16,17 +16,8 @@ class Science extends StatelessWidget {
       builder: (BuildContext context, Object? state) {
         var list = NewsCubit.get(context).science;
 
-        return ConditionalBuilder(
-            condition: state is! NewsScienceLoadingStates,
-            builder:(context)=> ListView.separated(
-              physics: BouncingScrollPhysics(),
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index)=> buildArticleItem(context,list[index])  ,
-              separatorBuilder: (BuildContext context, int index)=> myDivider(),
+        return  ArticleBuilder(list,context); },
 
-            ),
-            fallback: (context)=>Center(child: CircularProgressIndicator(),)); },
-
-    );;
+    );
   }
 }

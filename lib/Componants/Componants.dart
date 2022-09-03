@@ -1,6 +1,7 @@
 // ignore: file_names
 // ignore_for_file: file_names, non_constant_identifier_names
 
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 
 
@@ -134,7 +135,7 @@ Widget defaultButton({
 
 
 
-Widget buildArticleItem(context,article)=>Padding(
+Widget buildArticleItem(article,context)=>Padding(
   padding: const EdgeInsets.all(20.0),
   child: Row(children: [
     Container(
@@ -168,4 +169,13 @@ Widget buildArticleItem(context,article)=>Padding(
   ]),
 );
 
+Widget ArticleBuilder(list,context)=>ConditionalBuilder(
+    condition: list.length>0,
+    builder:(context)=> ListView.separated(
+      physics: BouncingScrollPhysics(),
+      itemCount: list.length,
+      itemBuilder: (BuildContext context, int index)=> buildArticleItem(list[index],context)  ,
+      separatorBuilder: (BuildContext context, int index)=> myDivider(),
 
+    ),
+    fallback: (context)=>Center(child: CircularProgressIndicator(),));

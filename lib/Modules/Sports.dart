@@ -16,16 +16,7 @@ class Sports extends StatelessWidget {
       builder: (BuildContext context, Object? state) {
         var list = NewsCubit.get(context).sports;
 
-        return ConditionalBuilder(
-            condition: state is! NewsSportsLoadingStates,
-            builder:(context)=> ListView.separated(
-              physics: BouncingScrollPhysics(),
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index)=> buildArticleItem(context,list[index])  ,
-              separatorBuilder: (BuildContext context, int index)=> myDivider(),
-
-            ),
-            fallback: (context)=>Center(child: CircularProgressIndicator(),)); },
+        return  ArticleBuilder(list,context); },
 
     );
   }

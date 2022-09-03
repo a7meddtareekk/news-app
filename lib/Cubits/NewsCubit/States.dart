@@ -16,5 +16,9 @@ class NewsScienceErrorStates extends NewsStates{}
 
 class NewsSearchLoadingStates extends NewsStates{}
 class NewsSearchSuccessStates extends NewsStates{}
-class NewsSearchErrorStates extends NewsStates{}
+class NewsSearchErrorStates extends NewsStates{
+  final String Error;
+
+  NewsSearchErrorStates(this.Error);
+}
 

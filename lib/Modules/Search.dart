@@ -33,7 +33,8 @@ var searchController=TextEditingController();
                     lable: 'search here',
                     Prefix: Icons.search),
               ),
-              Expanded(child: buildArticleItem(context, list))
+              searchController!=null?
+              Expanded(child: ArticleBuilder(list,context)):CircularProgressIndicator()
             ],),
         );
       },

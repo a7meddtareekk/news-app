@@ -110,10 +110,10 @@ void getScienceData(){
 }
 
 
-List<dynamic>search=[];
-void getSearchData(String value){
-  emit(NewsSearchLoadingStates());
+  List<dynamic> search = [];
+void getSearchData(value){
   search=[];
+  emit(NewsSearchLoadingStates());
   DioHelper.getData(
       url: 'v2/everything',
       query: {
@@ -124,7 +124,7 @@ void getSearchData(String value){
     search=value.data['articles'];
     emit(NewsSearchSuccessStates());
   }).catchError((onError){
-    emit(NewsSearchErrorStates());
+    emit(NewsSearchErrorStates(onError.toString()));
   });
 
 
