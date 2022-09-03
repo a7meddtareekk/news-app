@@ -112,6 +112,7 @@ void getScienceData(){
 
   List<dynamic> search = [];
 void getSearchData(value){
+  
   search=[];
   emit(NewsSearchLoadingStates());
   DioHelper.getData(
